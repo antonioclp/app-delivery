@@ -30,7 +30,7 @@ export default function Login() {
           Delivery App
         </div>
       </section>
-      {/* <form>
+      <form>
         <section>
           <div>
             <label>Email</label>
@@ -60,7 +60,7 @@ export default function Login() {
             <span>Error message</span>
           </div>
         </section>
-      </form> */}
+      </form>
     </main>
   )
 }
