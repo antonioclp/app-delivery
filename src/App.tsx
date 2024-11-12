@@ -3,6 +3,10 @@ import { Route, Routes } from 'react-router-dom'
 // Pages.
 import { Home } from './pages'
 
+/**
+ * App routes.
+ * @returns {JSX.Element}
+ */
 function App() {
   return (
     <Routes>
