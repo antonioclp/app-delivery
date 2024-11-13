@@ -33,16 +33,18 @@ export default function Login() {
       <form>
         <section>
           <div>
-            <label>Email</label>
+            <label htmlFor="email-input">Email</label>
             <input
               type="text"
+              id="email-input"
               placeholder="example@domain.com.br"
             />
           </div>
           <div>
-            <label>Password</label>
+            <label htmlFor="password-input">Password</label>
             <input
               type="password"
+              id="password-input"
             />
           </div>
         </section>
