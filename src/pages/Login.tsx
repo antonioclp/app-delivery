@@ -1,6 +1,34 @@
+import React from 'react'
 import { Link } from 'react-router-dom'
 
+// Custom hooks.
+import { useLogin } from '../hooks'
+
 export default function Login() {
+  const {
+    email,
+    setEmail,
+    password,
+    setPassword,
+    emailValidation,
+    passwordValidation,
+  } = useLogin()
+
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement>): void => {
+    const { id, value } = e.target
+
+    switch (id) {
+      case 'email-input':
+        setEmail(value)
+        break
+      case 'password-input':
+        setPassword(value)
+        break
+      default:
+        break
+    }
+  }
+
   return (
     <main>
       <section>
@@ -14,13 +42,13 @@ export default function Login() {
               height="95"
               fill="none"
               stroke="black"
-              stroke-width="5"
+              strokeWidth="5"
             />
             <polygon
               points="50,15 15,85 85,85"
               fill="white"
               stroke="black"
-              stroke-width="2.5"
+              strokeWidth="2.5"
             />
             <rect x="45" y="35" width="10" height="25" fill="black" />
             <circle cx="50" cy="70" r="5" fill="black" />
@@ -38,6 +66,7 @@ export default function Login() {
               type="text"
               id="email-input"
               placeholder="example@domain.com.br"
+              onChange={(e) => handleChange(e)}
             />
           </div>
           <div>
@@ -45,12 +74,19 @@ export default function Login() {
             <input
               type="password"
               id="password-input"
+              onChange={(e) => handleChange(e)}
             />
           </div>
         </section>
         <section>
           <div>
-            <button type="submit">Sing in</button>
+            <button
+              type="submit"
+              disabled={!(emailValidation(email) &&
+                passwordValidation(password))}
+            >
+              Sing in
+            </button>
           </div>
           <div>
             <span>
