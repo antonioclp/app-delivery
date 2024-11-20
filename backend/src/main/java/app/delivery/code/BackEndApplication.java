@@ -1,4 +1,4 @@
-package app.delivery.back_end;
+package app.delivery.code;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
