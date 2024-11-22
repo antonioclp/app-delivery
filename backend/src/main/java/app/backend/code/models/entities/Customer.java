@@ -6,28 +6,32 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
+import java.util.Collection;
+import java.util.List;
+import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.userdetails.UserDetails;
 
 /**
  * Customer entity.
  */
 @Entity
 @Table(name = "customers")
-public class Customer {
+public class Customer implements UserDetails {
   @Id
   @GeneratedValue(strategy = GenerationType.IDENTITY)
-  Integer id;
+  private Integer id;
 
   @Column(name = "cpf", unique = true, nullable = false)
-  String cpf;
+  private String cpf;
 
   @Column(name = "email", unique = true, nullable = false)
-  String email;
+  private String email;
 
   @Column(name = "name", nullable = false)
-  String username;
+  private String username;
 
   @Column(name = "password", nullable = false)
-  String password;
+  private String password;
 
   /**
    * Entity constructor.
@@ -83,11 +87,37 @@ public class Customer {
     this.username = username;
   }
 
+  @Override
   public String getPassword() {
     return password;
   }
 
   public void setPassword(String password) {
     this.password = password;
+  }
+
+  @Override
+  public Collection<? extends GrantedAuthority> getAuthorities() {
+    return List.of();
+  }
+
+  @Override
+  public boolean isAccountNonExpired() {
+    return true;
+  }
+
+  @Override
+  public boolean isAccountNonLocked() {
+    return true;
+  }
+
+  @Override
+  public boolean isCredentialsNonExpired() {
+    return true;
+  }
+
+  @Override
+  public boolean isEnabled() {
+    return true;
   }
 }
