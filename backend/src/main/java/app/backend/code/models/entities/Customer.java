@@ -27,26 +27,43 @@ public class Customer implements UserDetails {
   @Column(name = "email", unique = true, nullable = false)
   private String email;
 
+  @Column(name = "fullname", nullable = false)
+  private String fullname;
+
   @Column(name = "name", nullable = false)
   private String username;
 
   @Column(name = "password", nullable = false)
   private String password;
 
+  @Column(name = "age", nullable = false)
+  private int age;
+
   /**
    * Entity constructor.
    * Customer id @param id
    * Customer cpf @param cpf
    * Customer email @param email
+   * Customer fullname @param fullname
    * Customer username @param username
    * Customer password @param password
+   * Customer age @param age
    */
-  public Customer(Integer id, String cpf, String email, String username, String password) {
+  public Customer(
+      Integer id,
+      String cpf,
+      String email,
+      String fullname,
+      String username,
+      String password,
+      int age) {
     this.id = id;
     this.cpf = cpf;
     this.email = email;
+    this.fullname = fullname;
     this.username = username;
     this.password = password;
+    this.age = age;
   }
 
   /**
@@ -79,6 +96,14 @@ public class Customer implements UserDetails {
     this.email = email;
   }
 
+  public String getFullname() {
+    return fullname;
+  }
+
+  public void setFullname(String fullname) {
+    this.fullname = fullname;
+  }
+
   public String getUsername() {
     return username;
   }
@@ -94,6 +119,14 @@ public class Customer implements UserDetails {
 
   public void setPassword(String password) {
     this.password = password;
+  }
+
+  public int getAge() {
+    return age;
+  }
+
+  public void setAge(int age) {
+    this.age = age;
   }
 
   @Override
