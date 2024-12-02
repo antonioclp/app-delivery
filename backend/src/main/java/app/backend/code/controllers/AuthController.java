@@ -40,6 +40,6 @@ public class AuthController {
 
     Authentication auth = authenticationManager.authenticate(usernamePassword);
 
-    return "Pessoa autenticada com sucesso: %s".formatted(auth.getName());
+    return "Authenticated: %s".formatted(auth.getName());
   }
 }
