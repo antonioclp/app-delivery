@@ -6,11 +6,11 @@ import app.backend.code.models.entities.Customer;
  * Creation customer record.
  */
 public record CustomerCreationDto(
-    String cpf, // remove after (maybe)
-    String email, // remove after (maybe)
+    String cpf,
+    String email,
     String fullname,
     String username,
-    String password, // remove after
+    String password,
     int age) {
 
   /**

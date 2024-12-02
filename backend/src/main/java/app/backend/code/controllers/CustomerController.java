@@ -8,6 +8,7 @@ import app.backend.code.services.CustomerService;
 import org.apache.http.HttpStatus;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -34,6 +35,7 @@ public class CustomerController {
    * Object customer @param customer
    * Default response @return
    */
+  @PostMapping("/create")
   public ResponseEntity<ResponseDto<CustomerDto>> create(
       @RequestBody CustomerCreationDto customer) {
     try {
