@@ -6,6 +6,7 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
+import java.time.LocalDateTime;
 import java.util.Collection;
 import java.util.List;
 import org.springframework.security.core.GrantedAuthority;
@@ -39,6 +40,9 @@ public class Customer implements UserDetails {
   @Column(name = "age", nullable = false)
   private int age;
 
+  @Column(name = "created_at", nullable = false)
+  private LocalDateTime createdAt;
+
   /**
    * Entity constructor.
    * Customer id @param id
@@ -48,6 +52,7 @@ public class Customer implements UserDetails {
    * Customer username @param username
    * Customer password @param password
    * Customer age @param age
+   * Account created date @param createdAt
    */
   public Customer(
       Integer id,
@@ -56,7 +61,8 @@ public class Customer implements UserDetails {
       String fullname,
       String username,
       String password,
-      int age) {
+      int age,
+      LocalDateTime createdAt) {
     this.id = id;
     this.cpf = cpf;
     this.email = email;
@@ -64,6 +70,7 @@ public class Customer implements UserDetails {
     this.username = username;
     this.password = password;
     this.age = age;
+    this.createdAt = createdAt;
   }
 
   /**
@@ -127,6 +134,14 @@ public class Customer implements UserDetails {
 
   public void setAge(int age) {
     this.age = age;
+  }
+
+  public LocalDateTime getCreatedAt() {
+    return createdAt;
+  }
+
+  public void setCreatedAt(LocalDateTime createdAt) {
+    this.createdAt = createdAt;
   }
 
   @Override
