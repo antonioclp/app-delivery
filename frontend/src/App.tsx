@@ -1,7 +1,7 @@
 import { Route, Routes } from 'react-router-dom'
 
 // Pages.
-import { Home, Login } from './pages'
+import { Home, Login, Register } from './pages'
 
 /**
  * App routes.
@@ -12,6 +12,7 @@ function App() {
     <Routes>
       <Route path="/" element={<Home />} />
       <Route path="/login" element={<Login />} />
+      <Route path="/register" element={<Register />} />
       <Route path="/">
         <Route path="*" element={<span>404 page not found.</span>} />
       </Route>
