@@ -24,9 +24,7 @@ export default function Register() {
             <circle cx="50" cy="70" r="5" fill="black" />
           </svg>
         </div>
-        <div>
-          Delivery App
-        </div>
+        <div>Delivery App</div>
       </section>
       <form>
         <section>
@@ -43,7 +41,6 @@ export default function Register() {
             <input
               type="text"
               id="username-input"
-              maxLength={14}
               onChange={(e) => handleChange(e)}
             />
           </div>
@@ -84,11 +81,7 @@ export default function Register() {
         </section>
         <section>
           <div>
-            <button
-              type="submit"
-            >
-              Sing up
-            </button>
+            <button type="submit">Sing up</button>
           </div>
           <div>
             <span>Error message</span>
@@ -96,5 +89,5 @@ export default function Register() {
         </section>
       </form>
     </main>
-  )
+  );
 }
